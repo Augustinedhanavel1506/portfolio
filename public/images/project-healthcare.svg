@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0f0d"/>
+      <stop offset="100%" stop-color="#123a2c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#glow)"/>
+  <g stroke="#10b981" stroke-opacity="0.25" stroke-width="1.5">
+    <circle cx="600" cy="400" r="120" fill="none"/>
+    <circle cx="600" cy="400" r="200" fill="none"/>
+    <circle cx="600" cy="400" r="280" fill="none"/>
+  </g>
+  <path d="M560 400 h30 v-40 h20 v40 h30 v20 h-30 v40 h-20 v-40 h-30 z" fill="#10b981" fill-opacity="0.85"/>
+  <text x="600" y="600" text-anchor="middle" font-family="'Geist', Arial, sans-serif" font-size="40" fill="#f0fdf4" font-weight="600">Smart Healthcare</text>
+  <text x="600" y="648" text-anchor="middle" font-family="'Geist', Arial, sans-serif" font-size="24" fill="#a7f3d0">Management System</text>
+</svg>
