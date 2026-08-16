@@ -55,22 +55,23 @@ const WhatIDo = () => {
               <h3>DEVELOP</h3>
               <h4>Description</h4>
               <p>
-                Building full-stack, enterprise-grade applications end to end — from
-                Java/Spring Boot backends and relational data models to responsive,
-                user-friendly frontends.
+                Building full-stack, production systems end to end — Django REST and
+                React/TypeScript on one platform, PHP/CodeIgniter on another — from
+                relational data models and background jobs to responsive, real-time
+                frontends.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Java</div>
-                <div className="what-tags">Spring Boot</div>
-                <div className="what-tags">JEE</div>
-                <div className="what-tags">Hibernate</div>
-                <div className="what-tags">JDBC</div>
-                <div className="what-tags">HTML</div>
-                <div className="what-tags">CSS</div>
-                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">Python</div>
+                <div className="what-tags">Django</div>
+                <div className="what-tags">React</div>
+                <div className="what-tags">TypeScript</div>
+                <div className="what-tags">Flutter</div>
                 <div className="what-tags">PHP</div>
-                <div className="what-tags">SQL</div>
+                <div className="what-tags">CodeIgniter</div>
+                <div className="what-tags">MySQL</div>
+                <div className="what-tags">Celery</div>
+                <div className="what-tags">WebSockets</div>
               </div>
               <div className="what-arrow"></div>
             </div>

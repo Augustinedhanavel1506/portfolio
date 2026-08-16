@@ -112,11 +112,18 @@
     margin-left: 0;
     justify-content: center;
   }
-  h2.landing-info-h2 {
+  #landingDiv h2.landing-info-h2 {
     width: 100%;
     margin-left: 0;
     text-align: center;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+    font-size: clamp(24px, 7.5vw, 42px);
+  }
+  #landingDiv h2.landing-info-h2 .landing-h2-1 {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
   }
   .landing-info-h2::after {
     display: none;
@@ -707,6 +714,9 @@ h2.landing-info-h2 {
   .landing-info h2 {
     justify-content: flex-start;
   }
+  .landing-info h2:not(.landing-info-h2) {
+    margin-top: -48px;
+  }
   .landing-chat-cta {
     margin-left: 20px;
     margin-right: 0;
@@ -766,6 +776,9 @@ h2.landing-info-h2 {
   .landing-info h2 {
     font-size: 65px;
     line-height: 62px;
+  }
+  .landing-info h2:not(.landing-info-h2) {
+    margin-top: -70px;
   }
   h2.landing-info-h2 {
     font-size: 75px;
