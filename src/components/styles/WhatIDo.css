@@ -40,7 +40,7 @@
   display: none;
 }
 .what-content {
-  width: 450px;
+  width: 520px;
   height: 33%;
   min-height: 50%;
   transition: 0.5s;
@@ -230,6 +230,7 @@
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
+  padding-right: 30px;
 }
 .what-tags {
   font-size: 13px;
@@ -249,14 +250,14 @@
     margin-right: 20%;
   }
   .what-box-in {
-    height: 400px;
+    height: 440px;
   }
   .what-content h3 {
     font-size: 28px;
   }
   .what-content {
     padding: 30px;
-    width: 400px;
+    width: 460px;
   }
   .what-content p {
     font-size: 13px;
@@ -280,7 +281,7 @@
     margin-left: 50px;
   }
   .what-content {
-    width: 380px;
+    width: 440px;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -290,12 +291,12 @@
     padding-bottom: 50px;
   }
   .what-box-in {
-    height: 500px;
+    height: 540px;
     margin-left: -50px;
   }
   .what-content {
     padding: 50px;
-    width: 500px;
+    width: 540px;
   }
   .what-content p {
     font-size: 14px;
@@ -338,7 +339,7 @@
   }
   .what-box-in {
     margin-left: 0px;
-    height: 450px;
+    height: 490px;
   }
   .what-content h5,
   .what-content-flex {
