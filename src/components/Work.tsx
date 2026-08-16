@@ -18,6 +18,15 @@ interface WorkProject {
 
 const projects: WorkProject[] = [
   {
+    name: "Employee Project & Task Management System",
+    category: "Full-Stack / React & Django REST Framework",
+    description:
+      "A full-stack, role-based workforce management platform with three-tier Admin/Manager/Employee access control enforced at the API layer, plus JWT authentication with access/refresh rotation and blacklist-on-logout. Covers employee onboarding, project and task assignment with auto-computed progress, leave requests and approvals, task attachments (file, audio, video, URL) with server-side validation, and a live analytics dashboard with colorblind-safe charts and dark/light theming.",
+    tech: "React 19, Django REST Framework, MySQL, JWT Auth",
+    link: "https://github.com/Augustinedhanavel1506/employee-project-management",
+    image: publicUrl("/images/project-employee-management.png"),
+  },
+  {
     name: "Smart Healthcare Management System",
     category: "IoT / AI / Machine Learning",
     description:
