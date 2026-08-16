@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function setCharTimeline(
   modelEl: HTMLElement | null,
   photoEl: HTMLElement | null
-) {
+): ScrollTrigger[] {
   const tl1 = gsap.timeline({
     scrollTrigger: {
       trigger: ".landing-section",
@@ -98,11 +98,14 @@ export function setCharTimeline(
         { display: "flex", duration: 0.1, delay: 0 },
         0
       );
+      return [tl1, tl2, tl3, tM2].map((t) => t.scrollTrigger!);
     }
   }
+
+  return [tl1, tl2, tl3].map((t) => t.scrollTrigger!);
 }
 
-export function setAllTimeline() {
+export function setAllTimeline(): ScrollTrigger[] {
   const careerTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: ".career-section",
@@ -154,4 +157,6 @@ export function setAllTimeline() {
       0
     );
   }
+
+  return [careerTimeline.scrollTrigger!];
 }

@@ -37,23 +37,28 @@ const CharacterModel = () => {
       img?.addEventListener("error", reveal, { once: true });
     }
 
-    const rebuildTimelines = () => {
-      const workTrigger = ScrollTrigger.getById("work");
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger !== workTrigger) trigger.kill();
-      });
-      setCharTimeline(modelRef.current, photoRef.current);
-      setAllTimeline();
+    let ownTriggers: ScrollTrigger[] = [];
+    const killOwnTriggers = () => {
+      ownTriggers.forEach((trigger) => trigger.kill());
+      ownTriggers = [];
     };
 
-    setCharTimeline(modelRef.current, photoRef.current);
-    setAllTimeline();
+    const rebuildTimelines = () => {
+      killOwnTriggers();
+      ownTriggers = [
+        ...setCharTimeline(modelRef.current, photoRef.current),
+        ...setAllTimeline(),
+      ];
+    };
+
+    rebuildTimelines();
     window.addEventListener("resize", rebuildTimelines);
 
     return () => {
       img?.removeEventListener("load", reveal);
       img?.removeEventListener("error", reveal);
       window.removeEventListener("resize", rebuildTimelines);
+      killOwnTriggers();
     };
   }, []);
 

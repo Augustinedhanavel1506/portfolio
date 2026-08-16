@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 import HoverLinks from "./HoverLinks";
@@ -14,23 +15,25 @@ const Navbar = () => {
     links.forEach((elem) => {
       const element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          const href = element.getAttribute("data-href");
-          if (href && href.startsWith("#")) {
-            e.preventDefault();
-            const target = document.querySelector(href);
-            target?.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
+        const href = element.getAttribute("data-href");
+        const target = href ? document.querySelector(href) : null;
+        // Only intercept when the section actually exists on this page
+        // (e.g. the home page). On other routes, let the browser do a
+        // real navigation back to the home page's anchor.
+        if (target && window.innerWidth > 1024) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
     });
   }, []);
+  const homeUrl = import.meta.env.BASE_URL;
   return (
     <>
       <div className="header">
-        <a href="#" className="navbar-title" data-cursor="disable">
+        <Link to="/" className="navbar-title" data-cursor="disable">
           AD
-        </a>
+        </Link>
         <a
           href="mailto:dhanushaugu88830@gmail.com"
           className="navbar-connect"
@@ -40,17 +43,17 @@ const Navbar = () => {
         </a>
         <ul>
           <li>
-            <a data-href="#about" href="#about">
+            <a data-href="#about" href={`${homeUrl}#about`}>
               <HoverLinks text="ABOUT" />
             </a>
           </li>
           <li>
-            <a data-href="#work" href="#work">
+            <a data-href="#work" href={`${homeUrl}#work`}>
               <HoverLinks text="WORK" />
             </a>
           </li>
           <li>
-            <a data-href="#contact" href="#contact">
+            <a data-href="#contact" href={`${homeUrl}#contact`}>
               <HoverLinks text="CONTACT" />
             </a>
           </li>

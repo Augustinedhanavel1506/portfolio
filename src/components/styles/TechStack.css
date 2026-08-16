@@ -1,0 +1,118 @@
+.techstack {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  margin-top: 160px;
+  margin-bottom: 120px;
+  z-index: 1;
+}
+.techstack-container {
+  margin: auto;
+  text-align: center;
+}
+.techstack-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accentColor);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.techstack-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  box-shadow: 0 0 8px var(--accentColor);
+}
+.techstack h2 {
+  margin: 14px 0 12px;
+  font-size: 56px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.techstack-subtitle {
+  max-width: 560px;
+  margin: 0 auto 70px;
+  color: #adacac;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.techstack-category {
+  text-align: left;
+  margin-bottom: 44px;
+}
+.techstack-category h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  color: var(--accentColor);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.techstack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.techstack-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.techstack-card:hover {
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+}
+.techstack-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+}
+.techstack-name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #f0fdf4;
+}
+.techstack-type {
+  margin: 2px 0 0;
+  font-size: 12px;
+  font-weight: 200;
+  color: #adacac;
+}
+@media only screen and (max-width: 900px) {
+  .techstack {
+    margin-top: 100px;
+    margin-bottom: 80px;
+  }
+  .techstack h2 {
+    font-size: 34px;
+  }
+  .techstack-subtitle {
+    margin-bottom: 50px;
+  }
+  .techstack-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+@media only screen and (max-width: 550px) {
+  .techstack-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
