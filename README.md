@@ -2,6 +2,8 @@
 
 **Live demo: [augustinedhanavel1506.github.io/portfolio](https://augustinedhanavel1506.github.io/portfolio/)**
 
+![Landing page](.github/assets/landing-page.png)
+
 A creative portfolio: a photo hero with GSAP scroll-driven sections and a
 Three.js/React Three Fiber physics-based tech-stack ball pit — built with
 React, TypeScript, and Vite. Deploys automatically to GitHub Pages on every
