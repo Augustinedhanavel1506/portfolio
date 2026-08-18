@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { smoother } from "../Navbar";
 
 export function initialFX() {
@@ -76,6 +77,15 @@ export function initialFX() {
 
   loopTwoLines(".landing-h2-info", ".landing-h2-info-1");
   loopTwoLines(".landing-h2-1", ".landing-h2-2");
+
+  // CharacterModel sets up the About/WhatIDo/Career ScrollTriggers as soon
+  // as it mounts, which can be before web fonts or images below the fold
+  // have finished loading and settled the page's real layout. Fast
+  // scrolling right after the loading screen hands off can then land on
+  // stale trigger boundaries (e.g. the WhatIDo card reveal never
+  // finishing). Recompute everything now that we're considered "ready".
+  requestAnimationFrame(() => requestAnimationFrame(() => ScrollTrigger.refresh()));
+  document.fonts?.ready?.then(() => ScrollTrigger.refresh());
 }
 
 function loopTwoLines(selector1: string, selector2: string) {

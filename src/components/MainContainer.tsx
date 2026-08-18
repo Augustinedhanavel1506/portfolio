@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import type { PropsWithChildren } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -13,6 +15,22 @@ import Work from "./Work";
 import setSplitText from "./utils/splitText";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
+  useEffect(() => {
+    // Home unmounts wholesale when navigating to a project detail page and
+    // back. Several animation utilities (character parallax, split-text
+    // reveals, ...) create scroll-linked GSAP timelines imperatively,
+    // outside of React's lifecycle, with no cleanup of their own. Left
+    // alone, each one leaks across a remount, keeps ticking against
+    // detached elements, and corrupts the scroll/pin math for the next
+    // mount. This is the catch-all: wipe every GSAP animation and
+    // ScrollTrigger when this page goes away, so the next mount starts
+    // from a clean slate regardless of which utility created what.
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      gsap.globalTimeline.clear();
+    };
+  }, []);
+
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
     const resizeHandler = () => {
