@@ -64,8 +64,8 @@ export function setCharTimeline(
         )
         .fromTo(
           ".what-box-in",
-          { display: "none" },
-          { display: "flex", duration: 0.1, delay: 6 },
+          { visibility: "hidden" },
+          { visibility: "visible", duration: 0.1, delay: 6 },
           0
         )
         .fromTo(
@@ -95,7 +95,7 @@ export function setCharTimeline(
       });
       tM2.to(
         ".what-box-in",
-        { display: "flex", duration: 0.1, delay: 0 },
+        { visibility: "visible", duration: 0.1, delay: 0 },
         0
       );
       return [tl1, tl2, tl3, tM2].map((t) => t.scrollTrigger!);

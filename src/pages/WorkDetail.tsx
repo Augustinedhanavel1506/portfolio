@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MdArrowOutward, MdArrowBack } from "react-icons/md";
 import Cursor from "../components/Cursor";
 import Navbar from "../components/Navbar";
 import { projects } from "../data/projects";
 import "./styles/WorkDetail.css";
+
+const homeUrl = import.meta.env.BASE_URL;
 
 const WorkDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -24,9 +26,9 @@ const WorkDetail = () => {
         <main className="work-detail-section section-container">
           <p className="work-detail-category">404</p>
           <h1>Project not found</h1>
-          <Link to="/" className="work-back-link" data-cursor="disable">
+          <a href={homeUrl} className="work-back-link" data-cursor="disable">
             <MdArrowBack /> Back to portfolio
-          </Link>
+          </a>
         </main>
       </div>
     );
@@ -42,9 +44,9 @@ const WorkDetail = () => {
       <Cursor />
       <Navbar />
       <main className="work-detail-section section-container">
-        <Link to="/" className="work-back-link" data-cursor="disable">
+        <a href={`${homeUrl}#work`} className="work-back-link" data-cursor="disable">
           <MdArrowBack /> Back to portfolio
-        </Link>
+        </a>
 
         <p className="work-detail-category">{project.category}</p>
         <h1 className="work-detail-title">{project.name}</h1>

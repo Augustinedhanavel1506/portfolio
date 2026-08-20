@@ -86,6 +86,20 @@ export function initialFX() {
   // finishing). Recompute everything now that we're considered "ready".
   requestAnimationFrame(() => requestAnimationFrame(() => ScrollTrigger.refresh()));
   document.fonts?.ready?.then(() => ScrollTrigger.refresh());
+
+  // A full-page reload landing on e.g. #work (see WorkDetail's "Back to
+  // portfolio" link) arrives before the loading sequence has revealed the
+  // page, so the browser's native scroll-to-anchor happens too early and
+  // silently no-ops. Do it ourselves once everything is ready — after a
+  // short delay, since scrolling concurrently with the ScrollTrigger
+  // .refresh() calls above (which resize the pinned Work section's spacer)
+  // gets reset back to 0 mid-animation.
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    setTimeout(() => {
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 200);
+  }
 }
 
 function loopTwoLines(selector1: string, selector2: string) {
