@@ -20,7 +20,13 @@ export function setCharTimeline(
   const tl2 = gsap.timeline({
     scrollTrigger: {
       trigger: ".about-section",
-      start: "center 55%",
+      // Must not start before tl1 (landing-section) ends — both animate
+      // .character-model's x to different targets, and any overlap in
+      // their active ranges means the two scrubbed timelines fight over
+      // the same property every frame, which is unstable under real
+      // continuous scrolling even though it's easy to miss when testing
+      // with discrete scroll jumps.
+      start: "top top",
       end: "bottom top",
       scrub: true,
       invalidateOnRefresh: true,
