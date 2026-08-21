@@ -7,6 +7,16 @@ export function setCharTimeline(
   modelEl: HTMLElement | null,
   photoEl: HTMLElement | null
 ): ScrollTrigger[] {
+  // .character-model is centered via CSS (left:50%; transform:translateX(-50%)).
+  // Rather than let GSAP parse that pre-existing transform into its internal
+  // xPercent/x model the first time a tween below touches it — which is
+  // sensitive to exactly when layout has settled relative to that first
+  // touch, and was observed producing a mirrored (opposite-sign) baseline
+  // depending on the rendering pipeline's timing — pin the baseline
+  // explicitly up front so every tween's x below is relative to a known,
+  // deterministic starting point.
+  if (modelEl) gsap.set(modelEl, { xPercent: -50 });
+
   const tl1 = gsap.timeline({
     scrollTrigger: {
       trigger: ".landing-section",
